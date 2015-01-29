@@ -7,8 +7,10 @@ npm install -g gulp
 npm install -g jspm
 ```
 Then please run on cmd the next commands:
-* npm install
-* jspm install
+```cmd
+npm install
+jspm install
+```
 
 Then just go to your browser and type http://localhost:9000
 Happy coding! :)
