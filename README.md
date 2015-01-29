@@ -7,7 +7,7 @@ npm install -g gulp
 npm install -g jspm
 ```
 Then please run on cmd the next commands:
-```cmd
+```sh
 npm install
 jspm install
 ```
