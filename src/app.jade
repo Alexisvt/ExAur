@@ -1,14 +1,15 @@
 template
-  section
-    h2 ${heading}
-    form(submit.delegate="welcome()",role="form")
-      .form-group
-        label(for="fn") First Name
-        input(type="text", placeholder="first name",id="fn",value.bind="firstName", class="form-control")
-      .form-group
-        label(for="ln") Last Name
-        input(type="text", placeholder="last name",id="ln",value.bind="lastName", class="form-control")
-      .form-group
-        label Full Name
-        p(class="help-block") ${fullName}
-      button(type="submit", class="btn btn-default") Submit
+  nav(class="navbar navbar-default navbar-fixed-top", role="navigation")
+    .navbar-header
+      a(href="#", class="navbar-brand")
+        i(class="fa fa-home")
+          span ${router.title}
+  div(class="collapse navbar-collapse",id="bs-example-navbar-collapse-1")
+    ul(class="nav navbar-nav")
+      li(repeat.for="row of router.navigation", class="${row.isActive ? 'active' : ''}")
+        a(href.bind="row.href") ${row.title}
+  ul(class="nav navbar-nav navbar-right")
+    li(class="loader", if.bind="router.isNavigating")
+      i(class="fa fa-spinner fa-spin fa-2x")
+  .page-host
+    router-view

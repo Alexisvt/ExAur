@@ -1,0 +1,14 @@
+template
+  section
+    h2 ${heading}
+    form(submit.delegate="welcome()",role="form")
+      .form-group
+        label(for="fn") First Name
+        input(type="text", placeholder="first name",id="fn",value.bind="firstName", class="form-control")
+      .form-group
+        label(for="ln") Last Name
+        input(type="text", placeholder="last name",id="ln",value.bind="lastName", class="form-control")
+      .form-group
+        label Full Name
+        p(class="help-block") ${fullName}
+      button(type="submit", class="btn btn-default") Submit

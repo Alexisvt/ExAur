@@ -1,0 +1,21 @@
+
+<template>
+  <section>
+    <h2>${heading}</h2>
+    <form submit.delegate="welcome()" role="form">
+      <div class="form-group">
+        <label for="fn">First Name</label>
+        <input type="text" placeholder="first name" id="fn" value.bind="firstName" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="ln">Last Name</label>
+        <input type="text" placeholder="last name" id="ln" value.bind="lastName" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <p class="help-block">${fullName}</p>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </section>
+</template>

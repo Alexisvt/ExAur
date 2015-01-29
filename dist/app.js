@@ -1,33 +1,30 @@
-System.register([], function (_export) {
+System.register(["aurelia-router"], function (_export) {
   "use strict";
 
-  var _prototypeProperties, Welcome;
+  var Router, _prototypeProperties, App;
   return {
-    setters: [],
+    setters: [function (_aureliaRouter) {
+      Router = _aureliaRouter.Router;
+    }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) {
         if (staticProps) Object.defineProperties(child, staticProps);
         if (instanceProps) Object.defineProperties(child.prototype, instanceProps);
       };
 
-      Welcome = (function () {
-        function Welcome() {
-          this.heading = "Bienvenido a mi primer app con Aurelia";
-          this.firstName = "Alexis";
-          this.lastName = "Villegas";
+      App = (function () {
+        function App(router) {
+          this.router = router;
+          this.router.configure(function (config) {
+            config.title = "Aurelia";
+            config.map([{ route: ["", "welcome"], moduleId: "welcome", nav: true, title: "Welcome" }]);
+          });
         }
 
-        _prototypeProperties(Welcome, null, {
-          fullName: {
-            get: function () {
-              return "" + this.firstName + " " + this.lastName;
-            },
-            enumerable: true,
-            configurable: true
-          },
-          welcome: {
-            value: function welcome() {
-              alert("Bievenido, " + this.fullName + "!");
+        _prototypeProperties(App, {
+          inject: {
+            value: function inject() {
+              return [Router];
             },
             writable: true,
             enumerable: true,
@@ -35,9 +32,9 @@ System.register([], function (_export) {
           }
         });
 
-        return Welcome;
+        return App;
       })();
-      _export("Welcome", Welcome);
+      _export("App", App);
     }
   };
 });
